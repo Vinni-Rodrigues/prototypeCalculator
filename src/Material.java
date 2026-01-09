@@ -9,9 +9,9 @@ public class Material {
 
 
     public Material(String tipoMaterial, double valorMetroQuadrado) {
-        this.tipoMaterial = tipoMaterial;
         this.valorMetroQuadrado = valorMetroQuadrado;
         this.largurasDisponiveis = new ArrayList<>();
+        this.tipoMaterial = tipoMaterial;
     }
 
 

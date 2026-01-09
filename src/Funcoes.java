@@ -32,6 +32,8 @@ public class Funcoes {
 
     }
 
+    private double larguraIdelMaterial = 0.0;
+
     protected static void checarCompatibilidadeTrabalhoMaterial(double menorLado, double larguraIdealMaterial) {
 
         for (int i = 0; i < materialSelecionado.getLargurasDisponiveis().size(); i++) {
