@@ -16,9 +16,12 @@ public class Main {
 
 
         Procedimentos.cabecalhoMenuInserirDimensoes();
+
         Procedimentos.novaLinha();
+
         Procedimentos.informarLargura();
         double largura = scan.nextDouble();
+
         Procedimentos.informarComprimento();
         double comprimento = scan.nextDouble();
 
@@ -32,26 +35,35 @@ public class Main {
 
         Procedimentos.novaLinha();
 
-        Funcoes.checarValidadeOpcao(opcao);
+        Material materialSelecionado = Funcoes.checarValidadeOpcao(opcao, materiais);
+
 
         double maiorLado = Funcoes.IdentificarLadoMaior(largura, comprimento);
         double menorLado = Funcoes.IdentificarLadoMenor(largura, comprimento);
-        double larguraIdealMaterial = 0.0;
-
-        Funcoes.checarCompatibilidadeTrabalhoMaterial(menorLado, larguraIdealMaterial);
 
 
-        double areaMaterial = Funcoes.CalcularAreaMaterialUsado(maiorLado, larguraIdealMaterial);
-        double areaFormatada = Math.floor(areaMaterial * 1000) / 1000;
+        double valorM2 = Funcoes.valorMetroQuadrado(materialSelecionado);
+
+        System.out.printf("Você escolheu: " + materialSelecionado.getTipoMaterial());
+        System.out.printf("\nO valor do M²: R$%.2f", valorM2);
 
 
-        double previaorcamento = Funcoes.CalcularOrcamento(areaFormatada, Funcoes.valorMetroQuadrado());
+        // Existe algum erro daqui para frente no código
+        double larguraIdealMaterial = Funcoes.checarCompatibilidadeTrabalhoMaterial(menorLado, materialSelecionado);
+
+
+        double areaMaterial = Funcoes.AreaMaterialTotal(maiorLado, larguraIdealMaterial);
+        double area = Utils.formatarArea(areaMaterial);
+
+        double previaorcamento = Funcoes.PreviaOrcamento(area, valorM2);
         String orcamento = Utils.paraReais(previaorcamento);
 
 
+        Procedimentos.novaLinha();
+        Procedimentos.separarMenus();
+        Procedimentos.novaLinha();
 
-
-        Procedimentos.apresentarInformacoesFinais(areaFormatada, larguraIdealMaterial, orcamento);
+        Procedimentos.apresentarInformacoesFinais(areaMaterial, larguraIdealMaterial, orcamento);
 
         scan.nextLine();
         scan.close();

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Funcoes {
 
     protected static double IdentificarLadoMenor(double largura, double comprimento) {
@@ -8,58 +10,51 @@ public class Funcoes {
         return Math.max(largura, comprimento);
     }
 
-    protected static double CalcularAreaMaterialUsado(double maiorLado, double larguraMaterial) {
-        return maiorLado * larguraMaterial;
-    }
-
-    protected static double CalcularOrcamento(double areaMaterialUsada, double valorMetroQuadrado) {
-        return areaMaterialUsada * valorMetroQuadrado;
-    }
-
     protected static void SelecionarOpcao(){
         Procedimentos.menuSelecaoOpcao();
     }
 
-    private static Material materialSelecionado = null;
-    protected static void checarValidadeOpcao(int opcao){
+    protected static Material checarValidadeOpcao(int opcao, ArrayList<Material> materiais){
 
-        if(opcao > 0 && opcao <= CatalagoMaterias.getListaMateriais().size()){
+       Material materialSelecionado = new Material("", 0);
+
+        if(opcao > 0 && opcao <= materiais.size()){
             materialSelecionado = CatalagoMaterias.getListaMateriais().get(opcao - 1);
-            System.out.println("Você escolheu: " + materialSelecionado.getTipoMaterial());
         } else {
             System.err.println("OPÇÃO INVÁLIDA! Tente novamente, com uma opção válida.");
         }
 
+        return materialSelecionado;
     }
 
-    private double larguraIdelMaterial = 0.0;
+    protected static double checarCompatibilidadeTrabalhoMaterial
+            (double menorLado, Material materialSelecionado) {
 
-    protected static void checarCompatibilidadeTrabalhoMaterial(double menorLado, double larguraIdealMaterial) {
 
         for (int i = 0; i < materialSelecionado.getLargurasDisponiveis().size(); i++) {
 
             if (menorLado < materialSelecionado.getLargurasDisponiveis().get(i)) {
-                larguraIdealMaterial = materialSelecionado.getLargurasDisponiveis().get(i);
-                break;
-            } else if (menorLado > materialSelecionado.getLargurasDisponiveis().getLast()) {
-                System.err.println("Tamanho de materias invalidos tente novamente.");
+                return materialSelecionado.getLargurasDisponiveis().get(i);
             }
 
         }
 
+        return 0.0;
     }
 
-    protected static double valorMetroQuadrado(){
+    protected static double valorMetroQuadrado(Material materialSelecionado){
         return materialSelecionado.getValorMetroQuadrado();
     }
 
-    protected double areaMaterialTotal(double maiorLado, double larguraIdealMaterial){
+    protected static double AreaMaterialTotal(double maiorLado, double larguraIdealMaterial){
         return maiorLado * larguraIdealMaterial;
     }
 
 
-    protected double previaOrcamento(double areaFormatada, double valorM2){
+    protected static double PreviaOrcamento(double areaFormatada, double valorM2){
         return  areaFormatada * valorM2;
     }
+
+
 
 }

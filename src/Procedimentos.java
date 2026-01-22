@@ -42,15 +42,16 @@ public class Procedimentos {
         System.out.print("Opção: ");
     }
 
-
-
-    protected static void apresentarInformacoesFinais(double areaFormatada, double larguraIdealMaterial, String orcamento){
-        System.out.println("A área total de material usado foi: " + areaFormatada);
-        System.out.println("A largura do material foi de: " + larguraIdealMaterial + "m");
-        System.out.println("O orçamento ficou em: R$ " + orcamento);
+    protected static void nomeOpcaoSelecionada(Material materialSelecionado){
+        System.out.println("Você escolheu: " + materialSelecionado.getTipoMaterial());
     }
 
 
+    protected static void apresentarInformacoesFinais(double area, double larguraIdealMaterial, String orcamento){
+        System.out.printf("A área total de material usado foi: %.3f", area, "m");
+        System.out.println("\nA largura do material foi de: " + larguraIdealMaterial + "m");
+        System.out.println("O orçamento ficou em: R$ " + orcamento);
+    }
 
 
 }

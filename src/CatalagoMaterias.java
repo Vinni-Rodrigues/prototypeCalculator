@@ -6,7 +6,7 @@ public class CatalagoMaterias {
 
     static {
 
-        Material AdesivoRitrama = new Material("Vinil Adesivo Ritrama",  120);
+        Material AdesivoRitrama = new Material("Adesivo Vinilico Ritrama",  120);
         AdesivoRitrama.adicionarLargura(1.06);
         AdesivoRitrama.adicionarLargura(1.55);
         listaMateriais.add(AdesivoRitrama);
