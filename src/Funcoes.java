@@ -41,11 +41,7 @@ public class Funcoes {
 
         return 0.0;
     }
-
-    protected static double valorMetroQuadrado(Material materialSelecionado){
-        return materialSelecionado.getValorMetroQuadrado();
-    }
-
+    
     protected static double AreaMaterialTotal(double maiorLado, double larguraIdealMaterial){
         return maiorLado * larguraIdealMaterial;
     }

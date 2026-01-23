@@ -4,7 +4,7 @@ import java.util.Collections;
 public class Material {
 
     private String tipoMaterial;
-    private static double valorMetroQuadrado;
+    private double valorMetroQuadrado;
     private ArrayList<Double> largurasDisponiveis;
 
 
@@ -26,7 +26,7 @@ public class Material {
     }
 
     public void setValorMetroQuadrado(double valorMetroQuadrado) {
-        Material.valorMetroQuadrado = valorMetroQuadrado;
+        this.valorMetroQuadrado = valorMetroQuadrado;
     }
 
     public String getTipoMaterial() {
@@ -34,7 +34,7 @@ public class Material {
     }
 
     public void setTipoMaterial(String tipoMaterial) {
-        tipoMaterial = tipoMaterial;
+        this.tipoMaterial = tipoMaterial;
     }
 
 

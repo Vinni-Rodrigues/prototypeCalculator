@@ -41,21 +41,17 @@ public class Main {
         double maiorLado = Funcoes.IdentificarLadoMaior(largura, comprimento);
         double menorLado = Funcoes.IdentificarLadoMenor(largura, comprimento);
 
-
-        double valorM2 = Funcoes.valorMetroQuadrado(materialSelecionado);
-
-        System.out.printf("Você escolheu: " + materialSelecionado.getTipoMaterial());
-        System.out.printf("\nO valor do M²: R$%.2f", valorM2);
-
+        Procedimentos.nomeOpcaoSelecionada(materialSelecionado);
+        Procedimentos.valorMetroOpcaoSelecionada(materialSelecionado);
 
         // Existe algum erro daqui para frente no código
         double larguraIdealMaterial = Funcoes.checarCompatibilidadeTrabalhoMaterial(menorLado, materialSelecionado);
 
 
         double areaMaterial = Funcoes.AreaMaterialTotal(maiorLado, larguraIdealMaterial);
-        double area = Utils.formatarArea(areaMaterial);
+        //double area = Utils.formatarArea(areaMaterial);
 
-        double previaorcamento = Funcoes.PreviaOrcamento(area, valorM2);
+        double previaorcamento = Funcoes.PreviaOrcamento(areaMaterial, materialSelecionado.getValorMetroQuadrado());
         String orcamento = Utils.paraReais(previaorcamento);
 
 

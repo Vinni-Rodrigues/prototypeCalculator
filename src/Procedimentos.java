@@ -46,6 +46,10 @@ public class Procedimentos {
         System.out.println("Você escolheu: " + materialSelecionado.getTipoMaterial());
     }
 
+    protected static void valorMetroOpcaoSelecionada(Material materialSelecionado){
+        System.out.println("Valor do m²: R$" + materialSelecionado.getValorMetroQuadrado());
+    }
+
 
     protected static void apresentarInformacoesFinais(double area, double larguraIdealMaterial, String orcamento){
         System.out.printf("A área total de material usado foi: %.3f", area, "m");
