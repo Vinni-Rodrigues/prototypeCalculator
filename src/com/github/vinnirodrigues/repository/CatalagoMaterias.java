@@ -1,8 +1,13 @@
+package com.github.vinnirodrigues.repository;
+
+import com.github.vinnirodrigues.model.Material;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class CatalagoMaterias {
 
-    private static ArrayList<Material> listaMateriais = new ArrayList<>();
+    private static final ArrayList<Material> listaMateriais = new ArrayList<>();
 
     static {
 
@@ -39,11 +44,13 @@ public class CatalagoMaterias {
 
     }
 
-    public static ArrayList<Material> getListaMateriais() {
+    public static List<Material> getListaMateriais() {
         return listaMateriais;
     }
 
-    public static void setListaMateriais(ArrayList<Material> listaMateriais) {
-        CatalagoMaterias.listaMateriais = listaMateriais;
-    }
+//    public static void setListaMateriais(ArrayList<Material> listaMateriais) {
+//        CatalagoMaterias.listaMateriais = listaMateriais;
+//    }
+
+
 }

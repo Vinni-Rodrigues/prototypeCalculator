@@ -1,4 +1,12 @@
-import java.util.ArrayList;
+import com.github.vinnirodrigues.model.Material;
+import com.github.vinnirodrigues.service.CalculadoraMaterial;
+import com.github.vinnirodrigues.repository.CatalagoMaterias;
+import com.github.vinnirodrigues.service.CalculadoraOrcamento;
+import com.github.vinnirodrigues.service.Procedimentos;
+import com.github.vinnirodrigues.utils.utilitarios;
+
+
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -6,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
-        ArrayList<Material> materiais = CatalagoMaterias.getListaMateriais();
+        List<Material> materials = CatalagoMaterias.getListaMateriais();
 
 
         Procedimentos.textoCabecalho();
@@ -29,34 +37,34 @@ public class Main {
         Procedimentos.novaLinha();
         Procedimentos.novaLinha();
 
-        Funcoes.SelecionarOpcao();
+        Procedimentos.menuSelecaoOpcao();
         int opcao = scan.nextInt();
 
 
         Procedimentos.novaLinha();
 
-        Material materialSelecionado = Funcoes.checarValidadeOpcao(opcao, materiais);
+        Material materialSelecionado = CalculadoraMaterial.checarValidadeOpcao(opcao, materials);
 
 
-        double maiorLado = Funcoes.IdentificarLadoMaior(largura, comprimento);
-        double menorLado = Funcoes.IdentificarLadoMenor(largura, comprimento);
+        double maiorLado = CalculadoraMaterial.IdentificarLadoMaior(largura, comprimento);
+        double menorLado = CalculadoraMaterial.IdentificarLadoMenor(largura, comprimento);
 
 
-        double valorM2 = Funcoes.valorMetroQuadrado(materialSelecionado);
+        double valorM2 = CalculadoraOrcamento.valorMetroQuadrado(materialSelecionado);
 
-        System.out.printf("Você escolheu: " + materialSelecionado.getTipoMaterial());
+        System.out.print("Você escolheu: " + materialSelecionado.getTipoMaterial());
         System.out.printf("\nO valor do M²: R$%.2f", valorM2);
 
 
         // Existe algum erro daqui para frente no código
-        double larguraIdealMaterial = Funcoes.checarCompatibilidadeTrabalhoMaterial(menorLado, materialSelecionado);
+        double larguraIdealMaterial = CalculadoraMaterial.checarCompatibilidadeTrabalhoMaterial(menorLado, materialSelecionado);
 
 
-        double areaMaterial = Funcoes.AreaMaterialTotal(maiorLado, larguraIdealMaterial);
-        double area = Utils.formatarArea(areaMaterial);
+        double areaMaterial = CalculadoraOrcamento.areaMaterialTotal(maiorLado, larguraIdealMaterial);
+        double area = utilitarios.formatarArea(areaMaterial);
 
-        double previaorcamento = Funcoes.PreviaOrcamento(area, valorM2);
-        String orcamento = Utils.paraReais(previaorcamento);
+        double previaorcamento = CalculadoraOrcamento.calcularPreviaOrcamento(area, valorM2);
+        String orcamento = utilitarios.paraReais(previaorcamento);
 
 
         Procedimentos.novaLinha();

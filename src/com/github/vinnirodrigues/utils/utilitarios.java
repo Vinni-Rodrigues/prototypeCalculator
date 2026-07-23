@@ -1,7 +1,9 @@
+package com.github.vinnirodrigues.utils;
+
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class Utils {
+public class utilitarios {
 
     private static final NumberFormat FORMATADOR_REAIS =
             NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
