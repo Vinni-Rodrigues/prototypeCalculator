@@ -48,9 +48,5 @@ public class CatalagoMaterias {
         return listaMateriais;
     }
 
-//    public static void setListaMateriais(ArrayList<Material> listaMateriais) {
-//        CatalagoMaterias.listaMateriais = listaMateriais;
-//    }
-
 
 }
