@@ -1,3 +1,5 @@
+package com.github.vinnirodrigues;
+
 import com.github.vinnirodrigues.model.Material;
 import com.github.vinnirodrigues.service.CalculadoraMaterial;
 import com.github.vinnirodrigues.repository.CatalagoMaterias;
@@ -14,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
-        List<Material> materials = CatalagoMaterias.getListaMateriais();
+        List<Material> materiais = CatalagoMaterias.getListaMateriais();
 
 
         Procedimentos.textoCabecalho();
@@ -43,7 +45,7 @@ public class Main {
 
         Procedimentos.novaLinha();
 
-        Material materialSelecionado = CalculadoraMaterial.checarValidadeOpcao(opcao, materials);
+        Material materialSelecionado = CalculadoraMaterial.checarValidadeOpcao(opcao, materiais);
 
 
         double maiorLado = CalculadoraMaterial.IdentificarLadoMaior(largura, comprimento);

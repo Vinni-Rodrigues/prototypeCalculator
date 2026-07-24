@@ -4,6 +4,7 @@ import com.github.vinnirodrigues.model.Material;
 import com.github.vinnirodrigues.repository.CatalagoMaterias;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CalculadoraMaterial {
 
@@ -31,7 +32,7 @@ public class CalculadoraMaterial {
     }
 
 
-    public static Material checarValidadeOpcao(int opcao, ArrayList<Material> materiais){
+    public static Material checarValidadeOpcao(int opcao, List<Material> materiais){
 
         Material materialSelecionado = new Material("", 0);
 

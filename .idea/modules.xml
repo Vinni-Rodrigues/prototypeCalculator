@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/relembrandoBasico.iml" filepath="$PROJECT_DIR$/relembrandoBasico.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/prototype-Calculator.main.iml" filepath="$PROJECT_DIR$/.idea/modules/prototype-Calculator.main.iml" />
     </modules>
   </component>
 </project>
